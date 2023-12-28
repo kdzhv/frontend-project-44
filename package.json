@@ -11,5 +11,11 @@
     "brain-games": "bin/brain-games.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.29.1"
+  }
 }
