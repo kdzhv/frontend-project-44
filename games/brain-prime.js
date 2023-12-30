@@ -1,25 +1,32 @@
 import readlineSync from 'readline-sync';
 import { getRandomNumber, launchGame } from '../src/index.js';
 
-const generateQuestionAndAnswer = () => {
+const generateQuestionAndAnswer = () => { 
     const randomNumber = getRandomNumber();
-    const isEven = (randomNumber % 2 === 0) ? 'yes' : 'no';
+    const isPrime = (randomNumber) => {
+        for(let i = 2, s = Math.sqrt(randomNumber); i <= s; i++) {
+            if(randomNumber % i === 0) return false;
+        }
+        return randomNumber > 1;
+    }
 
     let correctAnswer;
-    switch(isEven) {
-        case 'yes':
+    switch(isPrime()) {
+        case true:
             correctAnswer = 'yes';
             break;
-        case 'no':
+        case false:
             correctAnswer = 'no';
             break;
         default:
             correctAnswer = null;
     }
 
+    //console.log(correctAnswer);
+
     const question = `Question: ${randomNumber}`;
     return [question, correctAnswer];
-};
+}
 
 const getUserResponse = () => {
     const [question, correctAnswer] = generateQuestionAndAnswer();

@@ -45,4 +45,4 @@ const getUserResponse = () => {
     return [Number(userAnswer), correctAnswer];
 };
 
-launchGame(getUserResponse);
+export default getUserResponse;
